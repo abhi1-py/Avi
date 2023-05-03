@@ -1,0 +1,114 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+class Node{
+    public: 
+    int data;
+    Node *next;
+    Node(int val){
+        this->data = val;
+        this->next = NULL;
+    }
+};
+
+class LikedList{
+    Node *head,*tail;
+    public:
+    LikedList(){
+        head = tail = NULL;
+    }
+    void Insert(int val){
+        Node *nn = new Node(val);
+        if(head == NULL){
+            head = nn;
+            tail = nn;
+        }
+        else{
+            tail->next = nn;
+            tail = nn;
+        }
+        
+    }
+    void Dispaly(){
+        Node *temp = head;
+        while(temp){
+            cout<<temp->data<<" ";
+            temp = temp->next;
+        }
+    }
+    void Add_At_Front(int val){
+        Node *nn = new Node(val);
+        if(head==NULL){
+            head = nn;
+        }
+        else{
+            nn->next = head;
+            head = nn;
+        }
+    }
+    void Add_At_End(int val){
+        Node *nn = new Node(val);
+        tail->next = nn;
+        tail = nn;
+    }
+    void Add_At_Middle(int l , int r, int val){
+        //[1,2,3,5,6,7,8]
+        //     t    
+        Node *nn = new Node(val);
+        Node* temp = head;
+        Node* n1;
+        Node* n2;
+        while(temp->data!=l){
+            temp = temp->next;
+        }
+        n1 = temp;
+        n2 = temp->next;
+        n1->next = nn;
+        nn->next = n2;
+        
+    }
+    void Delete_At_Front(){
+        Node *temp;
+        temp=head->next;
+        head=temp;
+        
+    }
+    void Delete_At_End(){
+        Node *temp,*temp1;
+        temp=head->next;
+        temp1=temp->next;
+        while(temp1!=tail) {
+            temp=temp->next;
+            temp1=temp->next;
+        }
+        temp->next=NULL;
+        tail=temp;
+        
+        
+    }
+    void Delete_At_Middle(){
+        
+    }
+};
+
+
+int main(){
+   int n;
+   cin >> n;
+   LikedList list;
+   for(int i = 0 ; i < n ; i++){
+       int x;
+       cin >>x;
+       list.Insert(x);
+   }
+   list.Dispaly();
+   cout<<endl;
+//   list.Add_At_Front(100);
+//   list.Add_At_Middle(2,3,100);
+//   list.Add_At_End(100);
+//   list.Delete_At_Front();
+//   list.Delete_At_End();
+     list.Dispaly();
+   
+}
