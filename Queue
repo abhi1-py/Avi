@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct Queue{
+    int cap,front,rear;
+    int *arr;
+    Queue(int c){
+        cap = c;
+        front = rear = -1;
+        arr = new int[cap];
+    }
+    bool Isempty(){
+        if(front==-1 and rear==-1)return true;
+        else return false;
+    }
+    void Enque(int x){
+        if(front == -1 and rear == -1){
+            front++;
+            rear++;
+            arr[rear]=x;
+        }
+        else if((rear+1)%cap == front){
+            cout<<"Q is filled";
+        }
+        else{
+            rear = (rear+1)%cap;
+            arr[rear]=x;
+        }
+    }
+    void Deque(){
+        if(Isempty()){
+            cout<<"Q is empty";
+        }
+        else{
+            front = (front+1)%cap;
+        }
+    }
+    int Front(){
+        if(Isempty()){
+            return INT_MIN;
+        }
+        else{
+            int ans = arr[front];
+            return ans;
+        }
+    }
+    int Size(){
+        return rear-front+1;
+    }
+};
+int main(){
+   Queue Q(5);
+   Q.Enque(1);
+   Q.Enque(2);
+   Q.Enque(3);
+   Q.Deque();
+    
+}
