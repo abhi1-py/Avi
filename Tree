@@ -14,14 +14,14 @@ struct TreeNode{
 };
  
 int main(){
-    TreeNode *root = new Node(10);
-    TreeNode *c1 = new Node(20);
-    TreeNode *c2 = new Node(30);
+    TreeNode *root = new TreeNode(10);
+    TreeNode *c1 = new TreeNode(20);
+    TreeNode *c2 = new TreeNode(30);
     
     root->left = c1;
     root->right = c2;
-    TreeNode *c11 = new Node(40);
-    TreeNode *c12 = new Node(50);
+    TreeNode *c11 = new TreeNode(40);
+    TreeNode *c12 = new TreeNode(50);
     c1->left = c11;
     c1->right = c12;
     
