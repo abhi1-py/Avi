@@ -11,7 +11,7 @@ struct TreeNode{
         data = val;
         left = right = NULL;
     }
-}
+};
  
 int main(){
     TreeNode *root = new Node(10);
