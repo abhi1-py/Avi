@@ -12,6 +12,27 @@ struct TreeNode{
         left = right = NULL;
     }
 };
+ void Inorder(Node *root,vector<int>&v){
+        if(root!=NULL){
+            v.push_back(root->data);
+            Inorder(root->left,v);
+            Inorder(root->right,v);
+        }
+    }
+  void Preorder(Node *root,vector<int>&v){
+        if(root!=NULL){
+            v.push_back(root->data);
+            Preorder(root->left,v);
+            Preorder(root->right,v);
+        }
+    }
+   void Postorder(Node *root,vector<int>&v){
+        if(root!=NULL){
+            v.push_back(root->data);
+            Postorder(root->left,v);
+            Postorder(root->right,v);
+        }
+    }
  
 int main(){
     TreeNode *root = new TreeNode(10);
@@ -24,5 +45,5 @@ int main(){
     TreeNode *c12 = new TreeNode(50);
     c1->left = c11;
     c1->right = c12;
-    
+    Postorder(root);
 }
